@@ -18,7 +18,7 @@ resource "tls_cert_request" "request" {
 
   key_algorithm   = "RSA"
   private_key_pem = tls_private_key.certificate_key.private_key_pem
-  dns_names = concat(tolist(var.host),var.alternates)
+  dns_names = concat( [ var.host ],var.alternates)
 
   subject {
     common_name = var.host
